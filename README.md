@@ -35,7 +35,7 @@ $ cp bbmlc.sh /usr/bin/bbmlc
 $ bbmlc index.bbmlc html
 ```
 
-#### And Enjoy it!
+### And Enjoy it!
 
 ```html
 <!DOCTYPE html>
