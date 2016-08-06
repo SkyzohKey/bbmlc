@@ -32,7 +32,10 @@ $ git clone https://github.com/SkyzohKey/bbml.git bbmlc && cd bbmlc
 $ cp bbmlc.sh /usr/bin/bbmlc
 
 # Use it !
-$ bbmlc index.bbmlc html
+$ bbmlc index.bbml html
+
+# Or import an html file to the bbml format with:
+$ bbmlc index.html bblc
 ```
 
 ### And Enjoy it!
