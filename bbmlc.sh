@@ -1,5 +1,4 @@
 #/bin/sh
-
 APP_NAME=$(basename "$0");
 APP_VERSION="0.1.0";
 
@@ -27,13 +26,14 @@ function main () {
   else
     echo -e "Usage: ./${APP_NAME} file.(html|bbml) (bbml|html)";
     echo -e "Example: ./${APP_NAME} index.bbml html # index.bbml -> index.html";
+    echo -e "         ./${APP_NAME} index.html bbml # index.html -> index.bbml";
     exit 1;
   fi;
 }
 
-function transpile_to () {  
+function transpile_to () {
   FORMAT="$1";
-  
+
   tput bold; tput setaf 4;
   echo -e " ##";
   echo -e " # The BBcode Markup Language transpiler";
@@ -42,19 +42,19 @@ function transpile_to () {
   echo -e " # @source https://github.com/SkyzohKey/bbml";
   echo -e " ##";
   tput sgr0;
-  
+
   tput bold; tput setaf 2;
   echo -e " - Source file: ${SRC_FILE}";
   echo -e " - Output file: ${OUT_FILE}";
   tput sgr0;
-  
+
   cat $SRC_FILE > $TMP_FILE;
-  
+
   if [ "$FORMAT" = "bbml" ]; then
     tput bold; tput setaf 6;
-    echo -e " - Compiling from html to bbml";
+    echo -e " - Transpiling from html to bbml";
     tput sgr0;
-  
+
     cat $TMP_FILE \
     | sed \
       -e 's/</\[/g' \
@@ -62,9 +62,9 @@ function transpile_to () {
     > $OUT_FILE;
   else
     tput bold; tput setaf 6;
-    echo -e " - Compiling from bbml to html";
+    echo -e " - Transpiling from bbml to html";
     tput sgr0;
-    
+
     cat $TMP_FILE \
     | sed \
       -e 's/\]/>/g' \
@@ -75,13 +75,13 @@ function transpile_to () {
   tput bold; tput setaf 4;
   echo -e " ##";
   tput setaf 2;
-  echo -e " - Compilation finished.";
+  echo -e " - Transpilation finished.";
   tput setaf 5;
   echo -e " - Output: $(pwd)/$OUT_FILE";
   tput setaf 4;
   echo -e " ##";
   tput sgr0;
-  
+
   exit 0;
 }
 
