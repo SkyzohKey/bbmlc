@@ -1,6 +1,6 @@
 #/bin/sh
-APP_NAME=$(basename "$0");
-APP_VERSION="0.1.0";
+readonly APP_NAME=$(basename "$0");
+readonly APP_VERSION="0.1.0";
 
 function main () {
   if [ -z "$1" ]; then
@@ -16,11 +16,11 @@ function main () {
   TMP_FILE=$(mktemp);
 
   if [ "$2" = "html" ]; then
-    SRC_FILE=$(basename "$1");
+    readonly SRC_FILE=$(basename "$1");
     OUT_FILE=$(basename "${SRC_FILE%.*}.html");
     transpile_to "html";
   elif [ "$2" = "bbml" ]; then
-    SRC_FILE=$(basename "$1");
+    readonly SRC_FILE=$(basename "$1");
     OUT_FILE=$(basename "${SRC_FILE%.*}.bbml");
     transpile_to "bbml";
   else
@@ -32,7 +32,7 @@ function main () {
 }
 
 function transpile_to () {
-  FORMAT="$1";
+  readonly FORMAT="$1";
 
   tput bold; tput setaf 4;
   echo -e " ##";
