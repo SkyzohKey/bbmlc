@@ -1,0 +1,19 @@
+language: bash
+
+notifications:
+  email:
+    on_success: never
+    on_failure: change
+
+script:
+  - cd examples/
+  - cp ../bbmlc.sh bbmlc.sh
+  - ./bbmlc.sh index.html bbml
+  - ./bbmlc.sh index.bbml html
+
+git:
+  depth: 10
+
+branches:
+  only:
+    - master
