@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/SkyzohKey/bbmlc.svg?branch=master)](https://travis-ci.org/SkyzohKey/bbmlc)
+
 # The BBcode Markup Language transpiler
 What if the following BBml code,
 
